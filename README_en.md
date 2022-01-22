@@ -38,17 +38,12 @@ As soon as you have everything done you can follow.
 
 If you want to rock and create your dev environment and data, it's possible to go through the usual way
 
-1. Create databases
-```
-rails db:create
-```
-
-2. Run migrations
+1. Run migrations
 ```
 rails db:migrate
 ```
 
-3. Start the server
+2. Start the server
 ```
 rails s
 ```

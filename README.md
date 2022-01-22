@@ -38,17 +38,12 @@ Assim que você tiver tudo feito, você pode seguir.
 
 Se você quiser agitar e criar seu ambiente de desenvolvimento e dados, é possível seguir o caminho usual:
 
-1. Crie o bancos de dados
-```
-rails db:create
-```
-
-2. Rode as migrações
+1. Rode as migrações
 ```
 rails db:migrate
 ```
 
-3. Inicie o servidor
+2. Inicie o servidor
 ```
 rails s
 ```
