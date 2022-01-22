@@ -1,15 +1,29 @@
-<h1>Articles</h1>
-
-Our blog has <%= Article.public_count %> articles and counting!
-
-<ul>
-  <% @articles.each do |article| %>
-    <% unless article.archived? %>
-      <li>
-        <%= link_to article.title, article %>
-      </li>
-    <% end %>
+<div class="p-4 p-md-5 mb-4 text-white rounded bg-secondary bg-gradient">
+  <div class="col-md-6 px-0">
+    <h1 class="display-4 fst-italic">Blog executado conforme tutorial</h1>
+    <p class="lead my-3">Baseado no tutorial "Getting Started with Rails" do site RailsGuides.</p>
+  </div>
+</div>
+<div class="row mb-2">
+<% @articles.each do |article| %>
+  <% unless article.archived? %>
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-200 position-relative">
+        <div class="col p-4 d-flex flex-column position-static lupaArtigo">
+        <% if article.status == "Público" %>
+          <strong class="d-inline-block mb-2 text-primary"><%= article.status %></strong>
+        <% else%>
+          <strong class="d-inline-block mb-2 text-danger"><%= article.status %></strong>
+        <% end %>
+          <h3 class="mb-0"><%= article.title %></h3>
+          <p class="card-text mb-auto text-truncate"><%= article.body %></p>
+        <%= link_to "", article, class:"stretched-link" %>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
-
-<%= link_to "New Article", new_article_path %>
+<% end %>
+</div>
+<div class="d-grid gap-2">
+  <%= link_to "Criar Artigo", new_article_path, class:"btn btn-secondary", role:"button" %>
+</div>

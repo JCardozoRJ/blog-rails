@@ -1,26 +1,24 @@
 <%= form_with model: article do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+  <div class="d-flex mt-3 mb-3">
+    <%= form.text_field :title, placeholder:"Título", class:"form-control" %>
     <% article.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
+    <%= form.text_area :body, rows: "5", placeholder:"Texto", class:"form-control" %><br>
     <% article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div>
-    <%= form.label :status %><br>
-    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  <div class="d-flex">
+    <%= form.label :Visibilidade, class:"me-3" %><br>
+    <%= form.select :status, ['Público', 'Privado', 'Arquivado'], class:"form-select" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="d-grid mt-5">
+    <%= form.submit "Criar Artigo", class:"btn btn-secondary" %>
   </div>
 <% end %>

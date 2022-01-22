@@ -1,17 +1,29 @@
-<h1><%= @article.title %></h1>
+<div class="mt-5 mb-5">
+  <h3 class="mb-3"><%= @article.title %></h3>
 
-<p><%= @article.body %></p>
-
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
-
-<h2>Comments</h2>
-<%= render @article.comments %>
-
-<h2>Add a comment:</h2>
+  <p><%= @article.body %></p>
+</div>
+<div class="d-flex justify-content-end mb-4">
+  <div class="me-3">
+    <%= link_to edit_article_path(@article), class:"btn btn-primary", role:"button" do %>
+      <i class="bi bi-pencil-square"></i> Editar Artigo
+    <% end %>
+  </div>
+  <div>
+    <%= link_to article_path(@article), class:"btn btn-danger", role:"button", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir?"} do %>
+      <i class="bi bi-file-earmark-x"></i> Remover Artigo
+    <% end %>
+  </div>
+</div>
+<hr class="solid mb-4">
+<h4>Comentários</h4>
+<div class="row align-items-start mb-3">
+  <% if @article.comments.count > 0 %>
+    <%= render @article.comments %>
+  <% else %>
+    <p>Nenhum comentário</p>
+  <% end %>
+</div>
+<hr class="solid mt-4 mb-4">
+<h4>Adicionar comentário:</h4>
 <%= render 'comments/form' %>
